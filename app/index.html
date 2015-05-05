@@ -6,23 +6,11 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <script src="bower_components/angular/angular.js"></script>
     <script src="js/controllers.js"></script>
+    <script src="js/app.js"></script>
 </head>
 <body>
-<div ng-controller="QuestionListController" style="width : 50%">
-    Search: <input ng-model="query">
-    Select order
-    <select ng-model="orderProp">
-        <option value="name">Alphabetical</option>
-        <option value="num">Newest</option>
-    </select>
+<div ng-view>
 
-    <ul>
-        <li ng-repeat="question in questions | filter:query | orderBy:orderProp" class="thumbnail">
-            <a href="#/questions/{{question.id}}" class="thumb"><img ng-src="{{question.imageUrl}}"></a>
-            <a href="#/questions/{{question.id}}">{{question.name}}</a>
-            <p>{{question.num}}</p>
-        </li>
-    </ul>
 </div>
 
 </body>
