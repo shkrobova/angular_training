@@ -42,10 +42,11 @@ describe('Self registration', function () {
             ]);
         });
 
-        it('Should phone page - character 1', function () {
+        it('Should display phone page - character question 2', function () {
             element.all(by.css('li a')).first().click();
             browser.getLocationAbsUrl().then(function(url){
                 expect(url.split('#')[1]).toBe('/questions/question2');
+                expect(element(by.binding('questionId')).getText()).toBe('question2');
             });
         });
     });
