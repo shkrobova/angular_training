@@ -3,7 +3,7 @@
  */
 var registrationApp = angular.module('registrationControllers', []);
 
-function QuestionListController ($scope, $http) {
+function QuestionListController($scope, $http) {
     $http.get('questions/questions.json').success(function (data) {
         $scope.questions = data;
     });
@@ -13,7 +13,10 @@ function QuestionListController ($scope, $http) {
 QuestionListController.inject = ['$scope', '$http'];
 registrationApp.controller('QuestionListController', QuestionListController);
 
-function QuestionDetailsController($scope, $routeParams){
+function QuestionDetailsController($scope, $routeParams, $http) {
+    $http.get('questions/' + $routeParams.questionId + '.json').success(function (data) {
+        $scope.question = data;
+    });
     $scope.questionId = $routeParams.questionId;
 }
 QuestionDetailsController.inject = ['$scope', '$routeParams'];

@@ -1,0 +1,6 @@
+{
+  "name": "Character question 1",
+  "priority": "high",
+  "description": "Your first name",
+  "mandatory" : true
+}

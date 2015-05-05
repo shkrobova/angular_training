@@ -3,7 +3,8 @@
  */
 var registrationApp = angular.module("registration", [
     'ngRoute',
-    'registrationControllers'
+    'registrationControllers',
+    'registrationFilter'
 ]);
 
 registrationApp.config(['$routeProvider',
