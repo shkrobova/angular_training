@@ -17,20 +17,29 @@ describe('Self registration', function () {
         })
     });
 
-    describe('Order questions', function(){
+    describe('Order questions', function () {
         beforeEach(function () {
             browser.get('app/index.html');
         });
+
         var questionNames = element.all(by.repeater('question in questions').column('question.name'));
+
         function getNames() {
-            return questionNames.map(function(elm) {
+            return questionNames.map(function (elm) {
                 return elm.getText();
             });
         }
-        element(by.css('option[value="name]')).click();
-        expect(getNames()).toEqual([
-            "Character question 1",
-            "Character question 2"
-        ]);
+
+        it('Should not do something', function () {
+            expect(questionNames.count()).toBe(2);
+        });
+
+        it('Should order', function () {
+            element(by.css('option[value=name]')).click();
+            expect(getNames()).toEqual([
+                "Character question 1",
+                "Character question 2"
+            ]);
+        });
     });
 });
