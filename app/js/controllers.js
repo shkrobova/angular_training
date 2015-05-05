@@ -1,7 +1,8 @@
 /**
  * Created by sha on 04.05.2015.
  */
-var registrationApp = angular.module('registration', []);
+var registrationApp = angular.module('registrationControllers', []);
+
 function QuestionListController ($scope, $http) {
     $http.get('questions/questions.json').success(function (data) {
         $scope.questions = data;
@@ -11,3 +12,9 @@ function QuestionListController ($scope, $http) {
 }
 QuestionListController.inject = ['$scope', '$http'];
 registrationApp.controller('QuestionListController', QuestionListController);
+
+function QuestionDetailsController($scope, $routeParams){
+    $scope.questionId = $routeParams.questionId;
+}
+QuestionDetailsController.inject = ['$scope', '$routeParams'];
+registrationApp.controller('QuestionDetailsController', QuestionDetailsController);

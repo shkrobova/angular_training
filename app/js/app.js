@@ -6,15 +6,16 @@ var registrationApp = angular.module("registration", [
     'registrationControllers'
 ]);
 
-registrationApp.config(['$roteProvider',
-    function(){
-        $routeProvider.when('/questions',{
+registrationApp.config(['$routeProvider',
+    function ($routeProvider) {
+        $routeProvider.when('/questions', {
             templateUrl: 'html/partial/questions.html',
-            controller : 'QuestionListController'
-        }).
-            when('questions/:questionId', {
-                templateUrl: 'html/partial/phone-detail'
-            })
+            controller: 'QuestionListController'
+        }).when('/questions/:questionId', {
+            templateUrl: 'html/partial/question-detail.html',
+            controller: 'QuestionDetailsController'
+        }).otherwise({
+            redirectTo: '/questions'
+        })
     }
-
 ]);
