@@ -41,5 +41,12 @@ describe('Self registration', function () {
                 "Character question 2"
             ]);
         });
+
+        it('Should phone page - character 1', function () {
+            element.all(by.css('li a')).first().click();
+            browser.getLocationAbsUrl().then(function(url){
+                expect(url.split('#')[1]).toBe('/questions/question2');
+            });
+        });
     });
 });

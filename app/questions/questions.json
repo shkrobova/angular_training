@@ -1,11 +1,15 @@
 [
   {
+    "id" : "question1",
     "name": "Character question 1",
-    "num" : 4
+    "num" : 4,
+    "imageUrl" : "images/question1.jpg"
   },
 
   {
+    "id" : "question2",
     "name" : "Character question 2",
-    "num" : 3
+    "num" : 3,
+    "imageUrl" : "images/question2.jpg"
   }
 ]

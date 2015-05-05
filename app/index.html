@@ -8,7 +8,7 @@
     <script src="js/controllers.js"></script>
 </head>
 <body>
-<div ng-controller="QuestionListController">
+<div ng-controller="QuestionListController" style="width : 50%">
     Search: <input ng-model="query">
     Select order
     <select ng-model="orderProp">
@@ -17,8 +17,9 @@
     </select>
 
     <ul>
-        <li ng-repeat="question in questions | filter:query | orderBy:orderProp">
-            <p>{{question.name}}</p>
+        <li ng-repeat="question in questions | filter:query | orderBy:orderProp" class="thumbnail">
+            <a href="#/questions/{{question.id}}" class="thumb"><img ng-src="{{question.imageUrl}}"></a>
+            <a href="#/questions/{{question.id}}">{{question.name}}</a>
             <p>{{question.num}}</p>
         </li>
     </ul>
